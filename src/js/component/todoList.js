@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 
-//import components
 import { Horizontal } from "./horizontal.js";
 import { Counter } from "./counter.js";
 
-//create your first component
 export function Todo() {
 	const [toDo, setToDo] = useState([]);
 
 	// blank input constraint
 	const newDo = event => {
 		if (event.key === "Enter" && event.target.value === "") {
-			// prevent from blank inputs
-			alert("Blank inputs not allowed");
+			//
+			alert("No puedes dejar espacios en blanco");
 		} else if (event.key === "Enter") {
-			// await for the enter Key to be pressed
 			event.preventDefault();
 			setToDo(toDo.concat(event.target.value));
-			event.target.value = ""; // clear the input box
+			event.target.value = "";
 		}
 	};
 	// remove to do
@@ -32,7 +29,7 @@ export function Todo() {
 			<ul className="list-group m-5">
 				<input
 					type="text"
-					placeholder="Enter to do..."
+					placeholder="Escriba una tarea "
 					onKeyDown={newDo}
 				/>
 				{toDo.map(doItem => (
