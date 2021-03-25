@@ -5,8 +5,6 @@ import { Counter } from "./counter.js";
 
 export function Todo() {
 	const [toDo, setToDo] = useState([]);
-
-	// blank input constraint
 	const newDo = event => {
 		if (event.key === "Enter" && event.target.value === "") {
 			//
@@ -17,7 +15,6 @@ export function Todo() {
 			event.target.value = "";
 		}
 	};
-	// remove to do
 	const removeDo = toRemove => {
 		const updatedArray = toDo.filter(item => item.toString() !== toRemove);
 		setToDo(updatedArray);
